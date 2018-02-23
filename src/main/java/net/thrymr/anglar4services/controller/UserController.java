@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.thrymr.anglar4services.LoginService;
@@ -39,6 +38,11 @@ public class UserController {
 	@GetMapping("/delete-user/{userId}")
 	public CoinResponse deleteUser(@PathVariable("userId") Long userId){
 		return loginService.deleteUser(userId);
+	}
+	
+	@PostMapping("/edit-user/{userId}")
+	public CoinResponse editUser(@RequestBody LoginBean loginBean){
+		return loginService.editUser(loginBean);
 	}
 
 	
